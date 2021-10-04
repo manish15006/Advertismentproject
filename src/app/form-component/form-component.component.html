@@ -1,0 +1,83 @@
+<!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>RestaurantApp</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-warning">
+      <!-- Navbar content -->
+      <nav class="navbar navbar-expand-lg m-auto">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <!-- Button trigger modal -->
+                  <button type="button"   class="btn btn-dark" >Form</button>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" routerLink="/tablecomponent">Table</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pricing</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </nav>
+  
+    <div >
+      <h2>Submit Form</h2>
+<form #userForm="ngForm" [formGroup]="formValue" (ngSubmit)="onSubmit()" >
+
+    {{userForm.value | json}}
+    <hr />
+    {{formsModel | json}}
+    <div class="mb-3">
+      <label  class="form-group">title</label>
+      <input type="text" formControlName="title" class="form-control" name="title" [(ngModel)]="formsModel.title">
+    </div>
+    <div class="mb-3 form-group">
+        <label  class="form-label">name</label>
+        <input type="text" formControlName="name" class="form-control" name="name" [(ngModel)]="formsModel.name">
+      </div>
+      <div class="mb-3 form-group">
+        <label  class="form-label">category :</label>
+        <select name="category" formControlName="category" name="category" [(ngModel)]="formsModel.category">
+            <option *ngFor="let dropdown of dropdowns" >{{ dropdown}}</option>
+        </select>
+      </div>
+      <div class="mb-3 form-group">
+        <label  class="form-label">description</label>
+        <textarea type="text" formControlName="description" class="form-control" name="description" [(ngModel)]="formsModel.description"></textarea>
+      </div>
+    <button (click)="addForms()" type="submit" class="btn btn-primary">Submit</button>&nbsp;
+  </form>
+    </div>
+  </body>
+  </html>
+
+
+
+
